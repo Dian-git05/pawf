@@ -27,13 +27,13 @@
 			<div class="col-md-12 my-2 card">
 				<div class="card-body">
 					<h5 class="h5">Alamat</h5>
-					<p>Ciampea, Bogor</p>
+					<p>Saya tinggal di Bogor Barat, tepat nya di daerah kecamatan Ciampea.</p>
 				</div>
 			</div>
 			<div class="col-md-12 my-2 card">
 				<div class="card-body">
 					<h5 class="h5">Email</h5>
-					<p>diankhaerunnisa97@gmail.com</p>
+					<p>Dian Khaerunnisa@gmail.com</p>
 				</div>
 			</div>
 			<div class="col-md-12 my-2 card">

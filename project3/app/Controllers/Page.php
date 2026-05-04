@@ -5,17 +5,17 @@ namespace App\Controllers;
 class Page extends BaseController
 {
     public function about()
-    {
-        return view('about');
-    }
-
+	{
+		echo view("about");
+	}
+    
     public function contact()
-    {
-        return view('contact');
-    }
-
+	{
+		echo view("contact");
+	}
+    
     public function faqs()
-    {
-        return view('faqs');
-    }
+	{
+		echo view("Faqs");
+	}
 }

@@ -23,9 +23,16 @@
 		</li>
         
       </ul>
-      <form class="d-flex" role="search">
-        <button class="btn btn-outline-success" type="submit">
-        //
+        <form class="d-flex" role="search">
+            <button class="btn btn-outline-success" type="submit">
+            <button class="btn btn-outline-success" type="submit">
+        <?php if (logged_in()) : ?>
+            <a class="nav-link" href="<?= base_url('logout') ?>">Logout</a>
+        <?php else: ?>
+            <a class="nav-link" href="<?= base_url('login') ?>">Login</a>
+        <?php endif; ?>
+        </button>
+
         </button>
       </form>
     </div>

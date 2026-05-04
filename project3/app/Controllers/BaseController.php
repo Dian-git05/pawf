@@ -26,6 +26,7 @@ abstract class BaseController extends Controller
      */
 
     // protected $session;
+    protected $helpers = ['auth']; # add
 
     /**
      * @return void
@@ -37,9 +38,10 @@ abstract class BaseController extends Controller
         // $this->helpers = ['form', 'url'];
 
         // Caution: Do not edit this line.
-        parent::initController($request, $response, $logger);
+    parent::initController($request, $response, $logger);
 
         // Preload any models, libraries, etc, here.
         // $this->session = service('session');
+
     }
 }

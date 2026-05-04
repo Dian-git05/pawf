@@ -8,7 +8,7 @@ class CreatePostsTable extends Migration
 {
     public function up()
     {
-        // Membuat kolom/field untuk tabel posts
+         // Membuat kolom/field untuk tabel posts
 		$this->forge->addField([
 			'id'          => [
 				'type'           => 'INT',
@@ -47,7 +47,6 @@ class CreatePostsTable extends Migration
 
     public function down()
     {
-        // menghapus tabel posts
-		$this->forge->dropTable('posts');
+        //
     }
 }

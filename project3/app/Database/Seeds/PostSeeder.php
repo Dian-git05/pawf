@@ -8,7 +8,7 @@ class PostSeeder extends Seeder
 {
     public function run()
     {
-        // membuat data
+         // membuat data
         $posts_data = [
         [
             'title' => 'Mulai Nyobain Codeigniter',
@@ -30,6 +30,5 @@ class PostSeeder extends Seeder
         // insert semua data ke tabel posts
         $this->db->table('posts')->insert($data);
         }
-
     }
 }

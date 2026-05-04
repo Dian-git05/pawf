@@ -27,7 +27,7 @@
 			<div class="col-md-12 my-2 card">
 				<div class="card-body">
 					<h5 class="h5">Mulai ngoding PHP nich</h5>
-					<p>Akhirnya memberanikan diri buat eksplor PHP lebih dalam! Ternyata seru banget bisa bikin website yang nggak cuma statis, tapi bisa berinteraksi dengan data. Di sini aku bakal berbagi catatan kecil tentang variabel, logika dasar, sampai gimana caranya bikin script PHP yang efisien.</p>
+					<p>Akhirnya memberanikan diri buat eksplor PHP lebih dalam! Ternyata asyik banget bisa bikin website yang nggak cuma statis, tapi bisa berinteraksi dengan data. Di sini aku bakal berbagi catatan kecil tentang variabel, logika dasar, sampai gimana caranya bikin script PHP yang efisien.</p>
 				</div>
 			</div>
 			<div class="col-md-12 my-2 card">
@@ -59,4 +59,4 @@
 
 </body>
 
-</html>
+</html>git 

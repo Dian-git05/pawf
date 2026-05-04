@@ -26,14 +26,14 @@
 		<div class="row">
 			<div class="col-md-12 my-2 card">
 				<div class="card-body">
-					<h5 class="h5">Apa bahasa pemrograman dan framework yang paling sering digunakan dalam proyek-proyek di blog ini?</h5>
-					<p> Bahasa pemrograman yang paling sering digunakan dalam proyek-proyek di blog ini adalah PHP, dan framework yang paling populer adalah CodeIgniter 4.</p>
+					<h5 class="h5">Apa bahasa pemrograman dan framework yang paling sering digunakan dalam proyek-proyek di blog ini? (Q)</h5>
+					<p>Sebagian besar proyek yang saya bagikan di sini dibangun menggunakan PHP dengan framework CodeIgniter 4 (CI4). Selain itu, saya juga aktif mengeksplorasi Python untuk logika pemrosesan data dan tentu saja menggunakan HTML, CSS, serta JavaScript untuk tampilan antarmuka yang interaktif.</p>
 				</div>
 			</div>
 			<div class="col-md-12 my-2 card">
 				<div class="card-body">
-					<h5 class="h5">Apakah konten di blog ini boleh dipelajari atau digunakan kembali untuk tugas kuliah</h5>
-					<p> Tentu saja! Blog ini dibuat dengan semangat berbagi ilmu. Kamu bebas mempelajari kode yang saya bagikan, mengadaptasinya, atau menggunakannya sebagai referensi belajar. Jika ada bagian yang kurang jelas atau ingin diskusi lebih lanjut mengenai teknis kodingnya, jangan ragu untuk menghubungi saya melalui halaman Contact.</p>
+					<h5 class="h5">Apakah konten di blog ini boleh dipelajari atau digunakan kembali untuk tugas kuliah? (Q)</h5>
+					<p>Tentu saja! Blog ini dibuat dengan semangat berbagi ilmu. Kamu bebas mempelajari kode yang saya bagikan, mengadaptasinya, atau menggunakannya sebagai referensi belajar. Jika ada bagian yang kurang jelas atau ingin diskusi lebih lanjut mengenai teknis kodingnya, jangan ragu untuk menghubungi saya melalui halaman Contact.</p>
 				</div>
 			</div>
 			
