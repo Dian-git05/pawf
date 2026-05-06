@@ -4,134 +4,158 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>MyBlog</title>
+    <title>Admin - Blog Management ✨</title>
+
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="<?= base_url('css/bootstrap.min.css') ?>" />
-</head>
-<body>
-    <nav class="navbar navbar-expand-md navbar-dark fixed-top bg-dark">
-        <div class="container">
-            <a class="navbar-brand" href="<?= base_url() ?>">MyBlog</a>
-            <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
-                data-bs-target="#navbarNav" aria-controls="navbarNav"
-                aria-expanded="false" aria-label="Toggle navigation">
-                <span class="navbar-toggler-icon"></span>
-            </button>
-            <div class="collapse navbar-collapse justify-content-between" id="navbarNav">
-                <ul class="navbar-nav">
-                    <li class="nav-item">
-                        <a class="nav-link" href="<?= base_url('admin/post') ?>">Blog</a>
-                    </li>
-                </ul>
-                <ul class="navbar-nav">
-                    <li class="nav-item">
-                        <a href="<?= base_url('admin/post/new') ?>"
-                           class="btn btn-primary mr-3">New Post</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="<?= base_url('admin/setting') ?>">Setting</a>
-                    </li>
-                    <li class="nav-item">
-                        <?php if (logged_in()) : ?>
-                            <a class="nav-link" href="<?= base_url('logout') ?>">Logout</a>
-                        <?php else: ?>
-                            <a class="nav-link" href="<?= base_url('login') ?>">Login</a>
-                        <?php endif; ?>
-                    </li>
 
-                </ul>
+    <style>
+        body {
+            background-color: #f8f9fa;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        /* Navbar khusus Admin */
+        .navbar-admin {
+            background: linear-gradient(to right, #4a148c 0%, #7b1fa2 100%);
+            box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+        }
+        /* Header Section */
+        .admin-header {
+            background-color: white;
+            padding: 3rem 2rem;
+            margin-bottom: 2rem;
+            border-bottom: 4px solid #f8bbd0;
+        }
+        .admin-header h1 {
+            color: #4a148c;
+            font-weight: 800;
+        }
+        /* Table Styling */
+        .card-table {
+            border: none;
+            border-radius: 20px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.05);
+            background-color: white;
+            overflow: hidden;
+        }
+        .table thead {
+            background-color: #fce4ec;
+            color: #ad1457;
+        }
+        .table th {
+            border: none;
+            padding: 15px;
+            font-weight: 600;
+        }
+        .table td {
+            vertical-align: middle;
+            padding: 15px;
+            border-color: #f3f3f3;
+        }
+        /* Badge Status */
+        .badge-published {
+            background-color: #e8f5e9;
+            color: #2e7d32;
+            padding: 5px 12px;
+            border-radius: 10px;
+            font-size: 0.85rem;
+            font-weight: 600;
+        }
+        /* Buttons */
+        .btn-new {
+            background-color: #f06292;
+            color: white;
+            border-radius: 12px;
+            padding: 10px 20px;
+            font-weight: 600;
+            transition: 0.3s;
+        }
+        .btn-new:hover {
+            background-color: #d81b60;
+            color: white;
+            transform: scale(1.05);
+        }
+        .btn-action {
+            border-radius: 8px;
+            font-size: 0.85rem;
+            margin: 2px;
+        }
+    </style>
+</head>
+
+<body>
+
+    <nav class="navbar navbar-expand-lg navbar-dark navbar-admin">
+        <div class="container">
+            <a class="navbar-brand" href="<?= base_url('admin/post') ?>">MyBlog Admin 🛠️</a>
+            <div class="navbar-nav ms-auto">
+                <a class="nav-link" href="<?= base_url('post') ?>" target="_blank">View Site</a>
+                <a class="nav-link" href="<?= base_url('admin/setting') ?>">Setting</a>
+                <a class="nav-link text-warning" href="<?= base_url('logout') ?>">Logout</a>
             </div>
         </div>
     </nav>
 
-    <div class="p-5 mb-4 bg-light rounded-3">
-        <div class="container py-5">
-            <h1 class="display-5 fw-bold">Blog > Admin</h1>
+    <div class="admin-header">
+        <div class="container d-flex justify-content-between align-items-center">
+            <div>
+                <h1>Blog > Admin 🎀</h1>
+                <p class="text-muted m-0">Kelola semua konten artikelmu di sini.</p>
+            </div>
+            <a href="<?= base_url('admin/post/new') ?>" class="btn btn-new">
+                + New Post
+            </a>
         </div>
     </div>
 
-    <div class="container">
-        <table class="table">
-            <thead>
-                <tr>
-                    <th>#</th>
-                    <th>Title</th>
-                    <th>Status</th>
-                    <th>Action</th>
-                </tr>
-            </thead>
-            <tbody>
-                <?php foreach($posts as $post): ?>
-                <tr>
-                    <td><?= $post['id'] ?></td>
-                    <td>
-                        <strong><?= $post['title'] ?></strong><br>
-                        <small class="text-muted"><?= $post['created_at'] ?></small>
-                    </td>
-                    <td>
-                        <?php if($post['status'] === 'published'): ?>
-                        <small class="text-success"><?= $post['status'] ?></small>
-                        <?php else: ?>
-                        <small class="text-muted"><?= $post['status'] ?></small>
-                        <?php endif ?>
-                    </td>
-                    <td>
-                        <a href="<?= base_url('admin/post/'.$post['id'].'/preview') ?>"
-                           class="btn btn-sm btn-outline-secondary" target="_blank">Preview</a>
-                        <a href="<?= base_url('admin/post/'.$post['id'].'/edit') ?>"
-                           class="btn btn-sm btn-outline-secondary">Edit</a>
-                        <a href="#"
-                           data-href="<?= base_url('admin/post/'.$post['id'].'/delete') ?>"
-                           onclick="confirmToDelete(this)"
-                           class="btn btn-sm btn-outline-danger">Delete</a>
-                    </td>
-                </tr>
-                <?php endforeach ?>
-            </tbody>
-        </table>
-
-        <!-- Delete Confirmation Modal -->
-        <div id="confirm-dialog" class="modal fade" tabindex="-1" role="dialog">
-            <div class="modal-dialog" role="document">
-                <div class="modal-content">
-                    <div class="modal-body">
-                        <h2 class="h2">Are you sure?</h2>
-                        <p>The data will be deleted and lost forever</p>
-                    </div>
-                    <div class="modal-footer">
-                        <a href="#" role="button" id="delete-button"
-                           class="btn btn-danger">Delete</a>
-                        <button type="button" class="btn btn-secondary"
-                                data-bs-dismiss="modal">Cancel</button>
-                    </div>
-                </div>
+    <div class="container mb-5">
+        <div class="card card-table">
+            <div class="table-responsive">
+                <table class="table table-hover mb-0">
+                    <thead>
+                        <tr>
+                            <th style="width: 5%">#</th>
+                            <th style="width: 50%">Title</th>
+                            <th style="width: 15%">Status</th>
+                            <th style="width: 30%" class="text-center">Action</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <?php foreach ($posts as $post) : ?>
+                        <tr>
+                            <td><?= $post['id'] ?></td>
+                            <td>
+                                <strong><?= esc($post['title']) ?></strong><br>
+                                <small class="text-muted"><?= $post['created_at'] ?></small>
+                            </td>
+                            <td>
+                                <span class="badge-published"><?= $post['status'] ?></span>
+                            </td>
+                            <td class="text-center">
+                                <a href="<?= base_url('post/' . $post['slug']) ?>" class="btn btn-outline-info btn-sm btn-action" target="_blank">Preview</a>
+                                <a href="<?= base_url('admin/post/' . $post['id'] . '/edit') ?>" class="btn btn-outline-secondary btn-sm btn-action">Edit</a>
+                                <a href="#" class="btn btn-outline-danger btn-sm btn-action" onclick="confirmDelete('<?= $post['id'] ?>')">Delete</a>
+                            </td>
+                        </tr>
+                        <?php endforeach; ?>
+                    </tbody>
+                </table>
             </div>
         </div>
+    </div>
 
-        <script>
-            function confirmToDelete(el) {
-                document.getElementById("delete-button")
-                    .setAttribute("href", el.dataset.href);
-                var myModal = new bootstrap.Modal(
-                    document.getElementById('confirm-dialog'), {
-                    keyboard: false
-                });
-                myModal.show();
+    <footer class="text-center py-4 text-muted">
+        &copy; <?= date('Y') ?> Admin Dashboard | Semangat Nulisnya! 💕
+    </footer>
+
+    <script>
+        function confirmDelete(id) {
+            if (confirm("Yakin mau hapus postingan ini? 🥺")) {
+                // PERBAIKAN: Menghapus slash berlebih agar URL menjadi /admin/post/delete/ID
+                window.location.href = "<?= base_url('admin/post/delete') ?>/" + id;
             }
-        </script>
-    </div>
-
-    <div class="container py-4">
-        <footer class="pt-3 mt-4 text-muted border-top">
-            <div class="container">
-                &copy; <?= Date('Y') ?>
-            </div>
-        </footer>
-    </div>
-
-    <!-- jQuery and Bootstrap JS -->
-    <script src="<?= base_url('js/jquery.min.js') ?>"></script>
-    <script src="<?= base_url('js/bootstrap.bundle.min.js') ?>"></script>
+        }
+    </script>
 
 </body>
 </html>
